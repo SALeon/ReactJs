@@ -20,13 +20,8 @@ module.exports = {
       use: ['babel-loader'],
     }],
   },
-  devtool: 'inline-source-map',
-  devServer: {
-    compress: true,
-    hot: true,
-  },
   plugins: [new HtmlWebpackPlugin({
     title: 'React JS',
-    template: 'src/index.html'
+    template: 'src/index.html',
   })],
 };
