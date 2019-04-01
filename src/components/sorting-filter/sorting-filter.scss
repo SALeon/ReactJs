@@ -1,0 +1,25 @@
+@import '../../styles/colors.scss';
+
+.sorting-filter {
+  display: flex;
+  background-color: $milk;
+  justify-content: flex-end;
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+
+    &--selected {
+      color: $red;
+    }
+
+    &-container {
+      margin-left: 2rem;
+    }
+  }
+}

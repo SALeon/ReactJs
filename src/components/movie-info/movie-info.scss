@@ -1,0 +1,39 @@
+@import '../../styles/variables.scss';
+@import '../../styles/colors.scss';
+
+.movie-info {
+  padding: 2*$grid-medium-gap;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-column-gap: 2*$grid-medium-gap;
+  background-image: linear-gradient(rgba(1, 1, 1, 0.8)), url(../../images/charles-464963-unsplash.jpg);
+  background-size: 100%;
+  background-position: bottom;
+
+  &__description {
+    grid-column: 2/span 1;
+    display: flex;
+    flex-flow: column wrap;
+
+    color: white;
+    &-text {
+      padding-top: $grid-medium-gap;
+      color: $grey-light;
+    }
+  }
+
+  &__data {
+    padding-top: $grid-medium-gap/2;
+    font-weight: $bold-light;
+  }
+
+  &__title {
+    color: $red;
+    font-size: 2.4rem;
+  }
+
+  &__image {
+    width: 100%;
+    grid-column: 1/span 1;
+  }
+}

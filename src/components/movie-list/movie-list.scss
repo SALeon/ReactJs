@@ -1,0 +1,11 @@
+@import '../../styles/variables.scss';
+@import '../../styles//mixins.scss';
+
+.movie-list {
+  margin: 0 $grid-medium-gap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: $grid-medium-gap;
+
+  &__item {}
+}

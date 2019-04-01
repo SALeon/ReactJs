@@ -15,10 +15,16 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /\.js$/,
+      test: /\.jsx?$/,
       exclude: /node_modules/,
       use: ['babel-loader'],
-    }],
+    },
+    {
+      test: /\.(jpg|png)$/,
+      use: ['file-loader'],
+    },
+
+    ],
   },
   plugins: [new HtmlWebpackPlugin({
     title: 'React JS',

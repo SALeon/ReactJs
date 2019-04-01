@@ -1,0 +1,4 @@
+@mixin getDividedWidth($screen-width, $amount-items, $margin-between-items){
+  width: $screen-width/$amount-items
+  - ($amount-items * $margin-between-items - $margin-between-items);
+}

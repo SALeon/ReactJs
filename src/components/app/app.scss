@@ -1,0 +1,67 @@
+@import '../../styles/variables.scss';
+@import '../../styles/colors.scss';
+
+.app-container {
+  display: grid;
+  grid-template-columns: repeat(2, $grid-medium-gap) 1fr repeat(2, $grid-medium-gap);
+  grid-template-rows: auto;
+
+  .header {
+    grid-column: 1/6;
+    background-image: linear-gradient(rgba(1, 1, 1, 0.7)), url(../../images/denise-jans-1149937-unsplash.jpg);
+    background-size: 100%;
+    background-position: bottom;
+
+    .filter {
+      margin: 0 $grid-medium-gap;
+    }
+
+    &__title {
+      margin: .5rem 0 $grid-medium-gap $grid-medium-gap;
+      color: $red;
+    }
+
+    &__row {
+      height: 4.5rem;
+      padding: 0 $grid-medium-gap;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: $milk;
+
+      .sorting-filter {
+        // grid-column-start: 3;
+        // grid-column: 4/span 2;
+        // grid-row: 2/ span 1;
+      }
+
+      .search-result {
+        z-index: 1;
+        // grid-column-start: 2;
+        // grid-column: 3/span 2;
+        // grid-row: 2/ span 1;
+      }
+    }
+  }
+
+  .main {
+    padding: $grid-medium-gap 0;
+    grid-column: 1/6;
+    background-color: $white-medium;
+  }
+
+  .footer {
+    grid-column: 1/6;
+    background-color: $grey-strong;
+
+    &__title {
+      margin: $grid-medium-gap;
+      color: $red;
+    }
+  }
+
+  .movie-info{
+    grid-column: 1/6;
+  }
+
+}
