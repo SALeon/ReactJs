@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieList snapshot 1`] = `
+<ul
+  className="movie-list"
+>
+  <li
+    className="movie-list__item"
+    key="id-1"
+  >
+    <MovieCard
+      movieInfo={
+        Object {
+          "genres": Array [
+            "genres-1",
+          ],
+          "id": "id-1",
+          "poster": "poster_path-1",
+          "releaseDate": "release_date-1",
+          "title": "title-1",
+          "voteCount": 1,
+        }
+      }
+    />
+  </li>
+  <li
+    className="movie-list__item"
+    key="id-2"
+  >
+    <MovieCard
+      movieInfo={
+        Object {
+          "genres": Array [
+            "genres-2",
+          ],
+          "id": "id-2",
+          "poster": "poster_path-2",
+          "releaseDate": "release_date-2",
+          "title": "title-2",
+          "voteCount": 2,
+        }
+      }
+    />
+  </li>
+  <li
+    className="movie-list__item"
+    key="id-3"
+  >
+    <MovieCard
+      movieInfo={
+        Object {
+          "genres": Array [
+            "genres-3",
+          ],
+          "id": "id-3",
+          "poster": "poster_path-3",
+          "releaseDate": "release_date-3",
+          "title": "title-3",
+          "voteCount": 3,
+        }
+      }
+    />
+  </li>
+</ul>
+`;

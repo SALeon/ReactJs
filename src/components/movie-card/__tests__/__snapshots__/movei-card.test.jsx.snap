@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render MovieCard Component 1`] = `
+<div
+  className="movie-card"
+>
+  <img
+    alt="movie poster"
+    className="movie-card__img"
+    src="https://image.tmdb.org/t/p/w500/ldoY4fTZkGISMidNw60GHoNdgP8.jpg"
+  />
+  <div
+    className="movie-card__info"
+  >
+    <span
+      className="movie-card__title"
+    >
+      title
+    </span>
+    <span
+      className="movie-card__release-date"
+    >
+      2017
+    </span>
+    <span
+      className="movie-card__genre"
+    >
+      ganre1 & genre2
+    </span>
+  </div>
+</div>
+`;

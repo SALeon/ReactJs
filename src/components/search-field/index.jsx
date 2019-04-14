@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import './search-field.scss';
 
 const SearchField = ({ placeholder, inputHandler, classStyles }) => (
-  <input className={['search-field', classStyles].join(' ')} type="text" placeholder={placeholder} onChange={inputHandler} />
+  <input
+    className={['search-field', classStyles].join(' ')}
+    autoFocus
+    type="text"
+    placeholder={placeholder}
+    onChange={inputHandler}
+  />
 );
 
 SearchField.propTypes = {

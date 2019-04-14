@@ -7,24 +7,24 @@ class ToggleItem extends PureComponent {
     id: PropTypes.string.isRequired,
     component: PropTypes.objectOf(Object).isRequired,
     toggleListener: PropTypes.func.isRequired,
-    selected: PropTypes.string.isRequired,
+    selectedId: PropTypes.string.isRequired,
     itemClassStyle: PropTypes.string,
   };
 
   state = {
-    isSelected: this.props.id === this.props.selected,
+    isSelected: this.props.id === this.props.selectedId,
   };
 
   static getDerivedStateFromProps(props, state) {
-    return props.id !== props.selected && state.isSelected
+    return props.id !== props.selectedId && state.isSelected
       ? { isSelected: false }
       : null;
   }
 
   handleClick = () => {
     const { isSelected } = this.state;
-    const { toggleListener, id, selected } = this.props;
-    if (id !== selected && !isSelected) {
+    const { toggleListener, id, selectedId } = this.props;
+    if (id !== selectedId && !isSelected) {
       this.setState(() => ({
         isSelected: !isSelected,
       }));

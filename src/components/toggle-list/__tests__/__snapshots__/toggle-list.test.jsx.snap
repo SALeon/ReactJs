@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleList with shallow snapshot 1`] = `
+<ul>
+  <li
+    key="1"
+  >
+    <ToggleItem
+      component={
+        <div>
+          mock
+        </div>
+      }
+      id="1"
+      selectedId="1"
+      toggleListener={[Function]}
+    />
+  </li>
+  <li
+    key="2"
+  >
+    <ToggleItem
+      component={
+        <div>
+          mock
+        </div>
+      }
+      id="2"
+      selectedId="1"
+      toggleListener={[Function]}
+    />
+  </li>
+  <li
+    key="3"
+  >
+    <ToggleItem
+      component={
+        <div>
+          mock
+        </div>
+      }
+      id="3"
+      selectedId="1"
+      toggleListener={[Function]}
+    />
+  </li>
+</ul>
+`;

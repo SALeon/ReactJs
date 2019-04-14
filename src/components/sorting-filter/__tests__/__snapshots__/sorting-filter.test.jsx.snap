@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortingFilter snapshot 1`] = `
+<div
+  className="sorting-filter"
+>
+  <span>
+    Sort by
+  </span>
+  <ToggleList
+    itemClassStyle="sorting-filter__item"
+    itemContainerStyle="sorting-filter__item-container"
+    items={
+      Array [
+        Object {
+          "component": <button
+            className="sorting-filter__item"
+            type="button"
+          >
+            release
+          </button>,
+          "id": "1",
+        },
+        Object {
+          "component": <button
+            className="sorting-filter__item"
+            type="button"
+          >
+            date
+          </button>,
+          "id": "2",
+        },
+        Object {
+          "component": <button
+            className="sorting-filter__item"
+            type="button"
+          >
+            rating
+          </button>,
+          "id": "3",
+        },
+      ]
+    }
+    listClassStyle="sorting-filter__list"
+  />
+</div>
+`;
