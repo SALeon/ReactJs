@@ -38,7 +38,7 @@ class ToggleList extends PureComponent {
       <li className={itemContainerStyle} key={item.id}>
         <ToggleItem
           itemClassStyle={itemClassStyle}
-          selected={condition}
+          selectedId={condition}
           component={item.component}
           id={item.id}
           toggleListener={this.handleToggleFilter}

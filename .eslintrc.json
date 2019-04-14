@@ -2,9 +2,15 @@
   "env": {
     "browser": true,
     "es6": true,
-    "node": true
+    "node": true,
+    "jest/globals": true,
+    "cypress/globals": true
   },
-  "extends": ["airbnb"],
+  "extends": [
+    "airbnb",
+    "plugin:jest/recommended",
+    "plugin:cypress/recommended"
+  ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -20,7 +26,9 @@
   "plugins": [
     "react",
     "jsx-a11y",
-    "import"
+    "import",
+    "jest",
+    "cypress"
   ],
   "rules": {
     "import/no-extraneous-dependencies": ["error", {

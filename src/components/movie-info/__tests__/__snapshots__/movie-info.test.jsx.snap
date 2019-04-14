@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render the MovieInfo component 1`] = `
+<div
+  className="movie-info"
+>
+  <img
+    alt="movie img"
+    className="movie-info__image"
+    src="poster"
+  />
+  <div
+    className="movie-info__description"
+  >
+    <h2
+      className="movie-info__title"
+    >
+      title
+    </h2>
+    <span
+      className="movie-info__data"
+    >
+      40
+    </span>
+    <p
+      className="movie-info__description-text"
+    >
+      overview
+    </p>
+  </div>
+</div>
+`;

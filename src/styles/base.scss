@@ -28,7 +28,11 @@ button, input, li, ul {
   padding: 0;
 }
 
-span:focus, button:focus {outline:0;}
+span:focus,
+button:focus,
+div:focus {
+  outline:0;
+}
 
 ol, ul {
 	list-style: none;

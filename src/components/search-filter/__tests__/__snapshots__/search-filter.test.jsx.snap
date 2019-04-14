@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchFilter snapshot 1`] = `
+<div
+  className="filter"
+>
+  <h2
+    className="filter__name"
+  >
+    FIND YOUR MOVIE
+  </h2>
+  <SearchField
+    classStyles="filter__input"
+    inputHandler={[Function]}
+    placeholder="enter search"
+  />
+  <h3
+    className="filter__title"
+  >
+    SEARCH BY
+  </h3>
+  <ToggleList
+    itemClassStyle="filter__item"
+    itemContainerStyle="filter__item-container"
+    items={
+      Array [
+        Object {
+          "component": <button
+            className="filter__item"
+            type="button"
+          >
+            TITLE
+          </button>,
+          "id": "1",
+        },
+        Object {
+          "component": <button
+            className="filter__item"
+            type="button"
+          >
+            GENRE
+          </button>,
+          "id": "2",
+        },
+      ]
+    }
+    listClassStyle="filter__list"
+  />
+  <Button
+    classStyles="filter__submit-button"
+    clickHandler={[Function]}
+    label="SEARCH"
+  />
+</div>
+`;

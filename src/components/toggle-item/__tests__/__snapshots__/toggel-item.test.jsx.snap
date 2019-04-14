@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleItem snapshot initial component 1`] = `
+<div
+  aria-checked="false"
+  className="toggle-item undefined--selected undefined"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  role="checkbox"
+  tabIndex={-1}
+>
+  <div>
+    mock
+  </div>
+</div>
+`;
