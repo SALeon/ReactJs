@@ -1,35 +1,27 @@
-import React, { Component } from 'react';
+import React, { PureComponent, Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import SearchField from '../search-field';
 import Button from '../button';
 import ToggleList from '../toggle-list';
+import { setSearchCondition, setFilteredValue } from '../../AC';
 import './search-filter.scss';
 
-class SearchFilter extends Component {
+class SearchFilter extends PureComponent {
   static propTypes = {
     inputPlaceholder: PropTypes.string.isRequired,
     searchLabel: PropTypes.string.isRequired,
     searchConditionsItems: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string,
-        title: PropTypes.string,
-      }),
+      PropTypes.string,
     ),
-  }
-
-  state = {
-    inputValue: '',
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    const { inputValue } = this.state;
-    return inputValue === nextState.inputValue;
+    // from connect
+    toggleHandler: PropTypes.func.isRequired,
+    setValue: PropTypes.func.isRequired,
   }
 
   handleInput = (ev) => {
-    this.setState({
-      inputValue: ev.target.value,
-    });
+    ev.preventDefault();
+    this.props.setValue(ev.target.value);
   }
 
   handleSubmit = () => {
@@ -37,7 +29,10 @@ class SearchFilter extends Component {
   }
 
   render() {
-    const { inputPlaceholder, searchLabel, searchConditionsItems } = this.props;
+    console.log('search filter render');
+    const {
+      inputPlaceholder, searchLabel, searchConditionsItems, toggleHandler,
+    } = this.props;
 
     return (
       <div className="filter">
@@ -49,17 +44,19 @@ class SearchFilter extends Component {
         />
         <h3 className="filter__title">SEARCH BY</h3>
         <ToggleList
+          toggleHandler={toggleHandler}
+          storePathName="selectedSearchFilter"
           listClassStyle="filter__list"
           itemContainerStyle="filter__item-container"
           itemClassStyle="filter__item"
           items={searchConditionsItems.map(item => ({
-            id: item.id,
+            name: item,
             component: (
               <button
                 className="filter__item"
                 type="button"
               >
-                {item.label}
+                {item}
               </button>
             ),
           }))}
@@ -74,4 +71,7 @@ class SearchFilter extends Component {
   }
 }
 
-export default SearchFilter;
+export default connect(null, {
+  toggleHandler: setSearchCondition,
+  setValue: setFilteredValue,
+})(SearchFilter);

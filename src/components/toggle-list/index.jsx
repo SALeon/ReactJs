@@ -4,12 +4,14 @@ import ToggleItem from '../toggle-item';
 
 class ToggleList extends PureComponent {
   static propTypes = {
+    toggleHandler: PropTypes.func.isRequired,
+    storePathName: PropTypes.string.isRequired,
     listClassStyle: PropTypes.string,
     itemContainerStyle: PropTypes.string,
     itemClassStyle: PropTypes.string,
     items: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
         component: PropTypes.objectOf(Object).isRequired,
       }),
     ).isRequired,
@@ -19,29 +21,24 @@ class ToggleList extends PureComponent {
     condition: this.props.items[0].id,
   }
 
-  handleToggleFilter = (id) => {
-    const { condition } = this.state;
-    if (condition !== id) {
-      this.setState(() => ({
-        condition: id,
-      }));
-    }
-  }
-
   render() {
     const {
       items, listClassStyle, itemClassStyle, itemContainerStyle,
     } = this.props;
+    console.log('togglelist ---');
+
     const { condition } = this.state;
+    const { toggleHandler, storePathName } = this.props;
 
     const toggleItems = items.map(item => (
-      <li className={itemContainerStyle} key={item.id}>
+      <li className={itemContainerStyle} key={`${item.name}-${storePathName}`}>
         <ToggleItem
           itemClassStyle={itemClassStyle}
           selectedId={condition}
           component={item.component}
-          id={item.id}
-          toggleListener={this.handleToggleFilter}
+          name={item.name}
+          toggleHandler={toggleHandler}
+          storePathName={storePathName}
         />
       </li>
     ));
