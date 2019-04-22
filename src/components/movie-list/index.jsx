@@ -1,14 +1,23 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import MovieCard from '../movie-card';
+import { loadAllMovies } from '../../AC';
 import './movie-list.scss';
 
 class MovieList extends PureComponent {
   static propTypes = {
+    // form connect
     movies: PropTypes.arrayOf(
       PropTypes.object,
     ).isRequired,
+    loadMovies: PropTypes.func.isRequired,
   };
+
+  componentDidMount() {
+    console.log('load movies start');
+    this.props.loadMovies();
+  }
 
   render() {
     const { movies } = this.props;
@@ -34,4 +43,7 @@ class MovieList extends PureComponent {
   }
 }
 
-export default MovieList;
+export default connect(
+  state => ({ movies: state.movies.items }),
+  { loadMovies: loadAllMovies },
+)(MovieList);

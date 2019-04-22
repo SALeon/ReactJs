@@ -5,7 +5,7 @@ import './movie-card.scss';
 class MovieCard extends PureComponent {
   static propTypes = {
     movieInfo: PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       releaseDate: PropTypes.string.isRequired,
       poster: PropTypes.string.isRequired,
@@ -21,10 +21,12 @@ class MovieCard extends PureComponent {
 
   render() {
     const {
-      movieInfo: { title },
-      movieInfo: { releaseDate },
-      movieInfo: { poster },
-      movieInfo: { genres },
+      movieInfo: {
+        title,
+        releaseDate,
+        poster,
+        genres,
+      },
     } = this.props;
     return (
       <div
