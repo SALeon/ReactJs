@@ -1,45 +1,67 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import store from '../../store';
-import SearchFilter from '../search-filter';
-import SortingFilter from '../sorting-filter';
 import MovieList from '../movie-list';
+import ErrorBoundary from '../error-boundary';
+import RoutMovieInfo from '../routes/route-movie-info';
+import MoviesHeader from '../movies-header';
+import { filterItems, siteLabel, searchResult, searchLabel, sortingInfo, genreInfoLabel } from '../../constants/staticData';
 import '../../styles/base.scss';
 import './app.scss';
-import data from '../../mock-response/list-response.json';
-import MovieInfo from '../movie-info';
-import ErrorBoundary from '../error-boundary';
-import {
-  filterItems, siteLabel, searchResult, sortingInfo,
-} from '../../constants/staticData';
 
 
 const App = () => (
-  <ErrorBoundary>
+  <BrowserRouter>
+
     <Provider store={store}>
-      <div className="app-container">
-        <header className="header">
-          <div className="header__title">{siteLabel}</div>
-          <SearchFilter
-            searchConditionsItems={filterItems}
-            inputPlaceholder="enter search"
-            searchLabel="SEARCH"
+      <ErrorBoundary>
+        <div className="app-container">
+          <Route render={({ location }) => (
+            <TransitionGroup component={null}>
+              <CSSTransition
+                key={location.key}
+                classNames="header-"
+                timeout={4000}
+              >
+                <Switch location={location}>
+                  <Route
+                    path="/movies"
+                    render={props => (
+                      <MoviesHeader
+                        {...props}
+                        labels={{ siteLabel, filterItems, searchLabel, searchResult, sortingInfo }}
+                      />
+                    )}
+                    exact
+                  />
+                  <Route
+                    path="/movies/:id"
+                    render={props => (
+                      <RoutMovieInfo
+                        {...props}
+                        labels={{ siteLabel, searchLabel, genreInfoLabel }}
+                      />
+                    )}
+                    exact
+                  />
+                </Switch>
+              </CSSTransition>
+            </TransitionGroup>
+          )}
           />
-          <div className="header__row">
-            <div className="search-result">{searchResult}</div>
-            <SortingFilter sortingData={sortingInfo} />
-          </div>
-        </header>
-        <main className="main">
-          <MovieList />
-        </main>
-        <footer className="footer">
-          <div className="footer__title">{siteLabel}</div>
-        </footer>
-        <MovieInfo movieInfo={data.data[6]} />
-      </div>
+          <main className="main">
+            <MovieList />
+          </main>
+          <footer className="footer">
+            <div className="footer__title">{siteLabel}</div>
+          </footer>
+        </div>
+      </ErrorBoundary>
     </Provider>
-  </ErrorBoundary>
+  </BrowserRouter>
+
 );
 
 export default App;

@@ -4,7 +4,7 @@ describe('Movie list', () => {
   });
 
   it('Display movie list on load', () => {
-    // TODO: after add request/response API change it test with GET API
+    // TODO: after add request/response MOVIE_API change it test with GET MOVIE_API
     cy.get('.movie-card').should('have.length', 40);
   });
 });

@@ -1,4 +1,8 @@
-import { START, FAIL, SUCCESS } from '../constants';
+import {
+  START, FAIL, SUCCESS, NOT_FOUND,
+} from '../constants';
+import movieParamsParser from '../helpers/movieParamsParser';
+
 
 // async function fetchAsync(url, type, next, ...rest) {
 //   const res = await fetch(url);
@@ -6,7 +10,7 @@ import { START, FAIL, SUCCESS } from '../constants';
 //   next({ ...rest, type: type + SUCCESS, payload: parsedRes });
 // }
 
-export default () => next => (action) => {
+export default ({ getState }) => next => (action) => {
   const { callApi, type, ...rest } = action;
   if (!callApi) {
     return next(action);
@@ -20,10 +24,14 @@ export default () => next => (action) => {
   //   console.log(err);
   //   next({ ...rest, type: type + FAIL, err });
   // }
-
-  fetch(callApi)
+  const request = callApi + movieParamsParser(getState());
+  fetch(request)
     .then(res => res.json())
-    .then(res => next({ ...rest, type: type + SUCCESS, payload: res }))
+    .then((res) => {
+      if (!res.data.length) {
+        return next({ ...rest, type: type + NOT_FOUND, payload: res });
+      } return next({ ...rest, type: type + SUCCESS, payload: res });
+    })
     .catch((error) => {
       next({ ...rest, type: type + FAIL, error });
     });

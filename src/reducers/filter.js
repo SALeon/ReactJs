@@ -2,8 +2,8 @@ import { FILTER_SEARCH, FILTER_SORT, SEARCH_VALUE } from '../AC/index';
 import { filterItems, sortingInfo } from '../constants/staticData';
 
 const defaultFilters = {
-  selectedSearchFilter: filterItems[0],
-  selectedSortingFilter: sortingInfo.items[0],
+  selectedSortingFilter: sortingInfo.items[0].value,
+  selectedSearchFilter: filterItems[0].value,
   searchInput: '',
 };
 

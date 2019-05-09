@@ -15,13 +15,13 @@ const SortingFilter = ({ sortingData, toggleHandler }) => (
       itemContainerStyle="sorting-filter__item-container"
       itemClassStyle="sorting-filter__item"
       items={sortingData.items.map(item => ({
-        name: item,
+        value: item.value,
         component: (
           <button
             className="sorting-filter__item"
-            type="button"
+            type="submit"
           >
-            {item}
+            {item.name}
           </button>
         ),
       }))}
@@ -33,7 +33,10 @@ SortingFilter.propTypes = {
   sortingData: PropTypes.shape({
     label: PropTypes.string.isRequired,
     items: PropTypes.arrayOf(
-      PropTypes.string.isRequired,
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired,
+      }),
     ).isRequired,
   }).isRequired,
   // from connect

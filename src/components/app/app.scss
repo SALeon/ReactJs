@@ -2,56 +2,65 @@
 @import '../../styles/colors.scss';
 
 .app-container {
+  min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, $grid-medium-gap) 1fr repeat(2, $grid-medium-gap);
-  grid-template-rows: auto;
+  // grid-template-rows: 25.5rem 1fr 8.5rem;
+  transition: all 3s;
+
 
   .header {
+    // transition: height 3s;
+    // &--appear-active {
+    //   opacity: 0.1;
+    // }
+
+    &--enter {
     grid-column: 1/6;
-    background-image: linear-gradient(rgba(1, 1, 1, 0.7)), url(../../images/denise-jans-1149937-unsplash.jpg);
-    background-size: 100%;
-    background-position: bottom;
+    }
+
+    &--enter-done {
+    grid-column: 1/6;
+    }
+
+    &--enter-active {
+      opacity: 1;
+    }
+
+    &--exit-active {
+      opacity: .1;
+    }
 
     .filter {
       margin: 0 $grid-medium-gap;
     }
 
     &__title {
-      margin: .5rem 0 $grid-medium-gap $grid-medium-gap;
+      margin: 1.5rem 0 $grid-medium-gap/2 $grid-medium-gap;
       color: $red;
     }
 
     &__row {
-      height: 4.5rem;
+      height: 4.7rem;
       padding: 0 $grid-medium-gap;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
       background-color: $milk;
-
-      .sorting-filter {
-        // grid-column-start: 3;
-        // grid-column: 4/span 2;
-        // grid-row: 2/ span 1;
-      }
 
       .search-result {
         z-index: 1;
-        // grid-column-start: 2;
-        // grid-column: 3/span 2;
-        // grid-row: 2/ span 1;
       }
     }
   }
 
   .main {
-    padding: $grid-medium-gap 0;
     grid-column: 1/6;
     background-color: $white-medium;
   }
 
   .footer {
     grid-column: 1/6;
+    grid-row: 3/4;
+
     background-color: $grey-strong;
 
     &__title {

@@ -1,43 +1,46 @@
 @import './fonts.scss';
+@import './mixins.scss';
 
 html {
   box-sizing: border-box;
   font-size: 62.5%; // 1rem=10px, 10px/16px = 62.5%
-   //    // with block mixin
-    //    @include respond-phone {
-    //        font-size: 50%;
-    //    }
 
-  //   @include respond(tab-land) {
-  //     //width < 1200
-  //     font-size: 56.25%; //1rem = 9px;  9px/16px=56.25%
-  // }
+  // //    // with block mixin
+  @include respond(phone) {
+    font-size: 50%;
+  }
 
-  // @include respond(tab-port) {
-  //     //width < 900
-  //     font-size: 50%; //1rem = 8px;  8px/16px=50%
-  // }
+  @include respond(tab-land) {
+    //width < 1200
+    font-size: 56.25%; //1rem = 9px;  9px/16px=56.25%
+  }
 
-  // //  //This needn't because of desktop first 900>600
-  // // @include respond(phone) {
-  // //     font-size: 50%; //1rem = 8px;  8px/16px=50%
-  // // }
+  @include respond(tab-port) {
+    // width < 900
+    font-size: 50%; //1rem = 8px;  8px/16px=50%
+  }
 
-  // //   in this min-width another that all max-width
-  // @include respond(big-desktop) {
-  //     font-size: 75%; //1rem = 12px;  12px/16px=75%
-  // }
+  // // //  //This needn't because of desktop first 900>600
+  // // // @include respond(phone) {
+  // // //     font-size: 50%; //1rem = 8px;  8px/16px=50%
+  // // // }
+
+  // // //   in this min-width another that all max-width
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12px;  12px/16px=75%
+  }
 }
 
 * {
   margin: 0;
   padding: 0;
   font-family: inherit;
+  box-sizing: inherit;
 }
 
 *::before,
 *::after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
@@ -46,7 +49,10 @@ body {
   font-size: 1.6rem;
 }
 
-button, input, li, ul {
+button,
+input,
+li,
+ul {
   font-size: 100%;
   border: 0;
   padding: 0;
@@ -55,9 +61,10 @@ button, input, li, ul {
 span:focus,
 button:focus,
 div:focus {
-  outline:0;
+  outline: 0;
 }
 
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }

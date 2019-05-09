@@ -1,0 +1,18 @@
+
+.header {
+  transition: all 3s;
+  &--movie {
+  background-image: linear-gradient(rgba(1, 1, 1, 0.7)), url(../../images/denise-jans-1149937-unsplash.jpg);
+  background-size: 100%;
+  background-position: bottom;
+}
+
+  &__row {
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.app-container {
+  grid-template-rows: 25.5rem 1fr 8.5rem;
+}

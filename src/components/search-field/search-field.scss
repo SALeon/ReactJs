@@ -2,7 +2,13 @@
 
 .search-field {
   height: 100%;
-  padding: 0 5px;
-  color: $white;
   background-color: $black;
+
+  &__input {
+    padding: 0 5px;
+    height: 100%;
+    width: 100%;
+    color: $white;
+    background-color: $black;
+  }
 }
