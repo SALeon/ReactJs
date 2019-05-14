@@ -2,10 +2,14 @@
 @import '../../styles/colors.scss';
 
 .movie-info {
+  overflow: hidden;
+
   padding: 2*$grid-medium-gap;
   display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 0.8fr 1.2fr;
   grid-column-gap: 2*$grid-medium-gap;
- 
+
 
   &__description {
     grid-column: 2/span 1;
@@ -30,7 +34,7 @@
   }
 
   &__image {
-    // width: 100%;
+    width: 100%;
     grid-column: 1/span 1;
   }
 }

@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { CSSTransition } from 'react-transition-group';
 import MovieInfoHeader from '../movie-info-header';
 
 class RoutMovieInfo extends PureComponent {
@@ -17,10 +18,21 @@ class RoutMovieInfo extends PureComponent {
     return (<MovieInfoHeader childProps={{ id }} labels={this.props.labels} />);
   }
 
+              //     <CSSTransition
+                      //       in={match !== null}
+                      //       mountOnEnter
+                      //       unmountOnExit
+                      //       classNames="movie-info__header-"
+                      //       timeout={6000}
+                      //     >
+                      //       <MovieInfoHeader
+                      //         childProps={{ id: match.params.id }}
+                      //         labels={this.props.labels}
+                      //       />
+                      //     </CSSTransition>
+
   render() {
-    return (
-      <Route path="/movies/:id" render={this.getMovieInfo} exact />
-    );
+    return (this.getMovieInfo);
   }
 }
 export default RoutMovieInfo;
