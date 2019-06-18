@@ -11,32 +11,24 @@ class ToggleList extends PureComponent {
     itemClassStyle: PropTypes.string,
     items: PropTypes.arrayOf(
       PropTypes.shape({
-        name: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired,
         component: PropTypes.objectOf(Object).isRequired,
       }),
     ).isRequired,
   }
 
-  state = {
-    condition: this.props.items[0].id,
-  }
-
   render() {
     const {
-      items, listClassStyle, itemClassStyle, itemContainerStyle,
+      items, listClassStyle, itemClassStyle, itemContainerStyle, toggleHandler, storePathName,
     } = this.props;
     console.log('togglelist ---');
 
-    const { condition } = this.state;
-    const { toggleHandler, storePathName } = this.props;
-
     const toggleItems = items.map(item => (
-      <li className={itemContainerStyle} key={`${item.name}-${storePathName}`}>
+      <li className={itemContainerStyle} key={`${item.value}-${storePathName}`}>
         <ToggleItem
           itemClassStyle={itemClassStyle}
-          selectedId={condition}
           component={item.component}
-          name={item.name}
+          value={item.value}
           toggleHandler={toggleHandler}
           storePathName={storePathName}
         />

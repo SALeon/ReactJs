@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './movie-card.scss';
 
@@ -22,6 +23,7 @@ class MovieCard extends PureComponent {
   render() {
     const {
       movieInfo: {
+        id,
         title,
         releaseDate,
         poster,
@@ -32,7 +34,9 @@ class MovieCard extends PureComponent {
       <div
         className="movie-card"
       >
-        <img className="movie-card__img" src={poster} alt="movie poster" />
+        <Link to={`/movies/${id}`}>
+          <img className="movie-card__img" src={poster} alt="movie poster" />
+        </Link>
         <div className="movie-card__info">
           <span className="movie-card__title">{title}</span>
           <span className="movie-card__release-date">{releaseDate.split('-')[0]}</span>

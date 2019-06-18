@@ -21,5 +21,6 @@ module.exports = merge(common, {
     compress: true,
     contentBase: './dist',
     hot: true,
+    historyApiFallback: true,
   },
 });

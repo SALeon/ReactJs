@@ -5,7 +5,7 @@
 .filter {
   color: $white;
   display: grid;
-  grid-template-columns: 15% 15% 15% 1fr 15%;
+  grid-template-columns: 10% 15% 15% 1fr 15%;
   grid-template-rows: repeat(3, 5rem);
   align-items: center;
 
@@ -35,6 +35,8 @@
     width: 10rem;
     border-radius: $button-radius;
     background-color: $grey;
+    color: $white;
+    font-weight: $bold-light;
     cursor: pointer;
 
     &-container {

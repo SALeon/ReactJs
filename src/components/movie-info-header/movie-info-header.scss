@@ -1,0 +1,14 @@
+@import '../../styles/animations.scss';
+
+.header {
+
+
+  &--movie-info { background-image: linear-gradient(rgba(1, 1, 1, 0.8)), url(../../images/charles-464963-unsplash.jpg);
+  background-size: 100%;
+  background-position: bottom;}
+
+}
+
+.js-root-component .app-container {
+  grid-template-rows: 1fr;
+}

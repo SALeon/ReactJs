@@ -1,4 +1,26 @@
-@mixin getDividedWidth($screen-width, $amount-items, $margin-between-items){
-  width: $screen-width/$amount-items
-  - ($amount-items * $margin-between-items - $margin-between-items);
+/*
+$breakpoint argument chices:
+-phone
+-tab-port
+-tab-lend
+-big-desktop
+*/
+
+// 1em = 16px
+@mixin respond ($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) { @content }; //600px
+  }
+
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) { @content }; //900px
+  }
+
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) { @content }; //1200px
+  }
+
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) { @content }; //18000px
+  }
 }
